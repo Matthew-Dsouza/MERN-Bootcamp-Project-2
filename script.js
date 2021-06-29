@@ -1,4 +1,4 @@
-// stores the card container element inside a variable
+//sike! it me! stores the card container element inside a variable
 const taskContainer = document.querySelector(".task-container");
 
 const globalStore = [];
