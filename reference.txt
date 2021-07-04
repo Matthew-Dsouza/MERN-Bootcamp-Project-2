@@ -5,3 +5,18 @@ Added Bootstrap:
 ->added task card
 ->added necessary outline buttons
 ->added card image
+
+->added modal
+->added form inputs to modal
+
+-->create a function to save changes
+->inside it create an object to store task card data
+->use the getElementById method to get the html tags id 
+
+->In html, add a tag to the div tag which stores all the cards & store that class name in a variable
+->use queryselector instead of getElementByClass to avoid getting the html element in the form of an array
+->queryselector gets all the html code inside the html element which was accessed
+->create a function to create a new card using template literal and destructure the task data object as a parameter
+->assign the id's inside the template literal
+
+->create a constant and call the create new card function inside it passing the task data

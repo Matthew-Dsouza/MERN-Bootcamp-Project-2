@@ -1,6 +1,6 @@
 // stores the card container element inside a variable
 const taskContainer = document.querySelector(".task-container");
-
+// asd
 const globalStore = [];
 
 // creates a function which destructures the object and provides it's values inside the template literal code
