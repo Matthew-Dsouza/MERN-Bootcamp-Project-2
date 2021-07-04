@@ -1,0 +1,7 @@
+Added Bootstrap:
+
+->added navbar
+->added search bar
+->added task card
+->added necessary outline buttons
+->added card image
