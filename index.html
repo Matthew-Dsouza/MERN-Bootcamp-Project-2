@@ -23,7 +23,7 @@
     <title>Taskify</title>
 </head>
 
-<body>
+<body onload="reloadTaskCards()">
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -58,7 +58,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Close
                     </button>
-                    <button type="button" class="btn btn-primary" onclick="saveChanges()">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="saveChanges()">
                         Save changes
                     </button>
                 </div>
@@ -109,7 +109,7 @@
         <!-- Task cards -->
         <section>
             <div class="row mb-2 task-container">
-                <div class="col-md-6 col-lg-4">
+                <!-- <div class="col-md-6 col-lg-4 mb-4">
                     <div class="card">
                         <div class=" card-header d-flex justify-content-end gap-2 m-0">
                             <button type="button" class="btn btn-outline-success">
@@ -133,7 +133,7 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
     </div>
