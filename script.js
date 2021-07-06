@@ -6,6 +6,47 @@ let globalStore = [];
 
 // function to create a new card by taking taskData as input
 const newCard = ({ id, imageUrl, taskTitle, taskType, taskDescription }) => `
+<!-- Open Task Modal  -->
+<div class="modal" id="openModal" tabindex="-3" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Task View</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="card shadow-sm task__card ">
+
+                    <div class="card-body">
+                        <img src=${imageUrl} alt="Card image cap" id="openImage" class="card-img-top rounded"
+                            width="height=200rem">
+
+                        <h1 class="task__card__title" id="openTitle">
+                            ${taskTitle}
+                        </h1>
+                        <p class="description trim-3-lines font-large " id="openDesc">
+                            ${taskDescription}
+                        </p>
+                        <div class="tags text-white d-flex flex-wrap">
+                            <h3>
+                                <span class="badge h1 bg-primary m-1" id="openType">
+                                    ${taskType}
+                                </span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+            </div>
+    </div>
+</div>
+
 <div class="col-md-6 col-lg-4 mb-4" id=${id}>
     <div class="card">
         <div class=" card-header d-flex justify-content-end gap-2 m-0">
@@ -29,7 +70,8 @@ const newCard = ({ id, imageUrl, taskTitle, taskType, taskDescription }) => `
             </span>
         </div>
         <div class="card-footer text-muted">
-            <button type="button" class="btn btn-outline-primary float-end" id=${id}>
+            <button type="button" class="btn btn-outline-primary float-end" id=${id} onclick="openModal()" data-bs-target="#openModal"
+                data-bs-toggle="modal">
                 Open Task
             </button>
         </div>
@@ -168,6 +210,12 @@ const saveEditCardChanges = (event) => {
 
         return task;
     });
-    
+
     updateLocalStorage();
+    taskTitle.setAttribute("contenteditable", "false");
+    taskDescription.setAttribute("contenteditable", "false");
+    taskType.setAttribute("contenteditable", "false");
+
+    submitButton.removeAttribute("onclick");
+    submitButton.innerHTML = "Open Task";
 };
