@@ -1,22 +1,79 @@
 Added Bootstrap:
 
-->added navbar
-->added search bar
-->added task card
-->added necessary outline buttons
-->added card image
+->add navbar
+->add search bar
+->add task card
+->add necessary outline buttons
+->add card image
 
-->added modal
-->added form inputs to modal
+->add modal
+->add form inputs to modal
+-->fix the bug to make the modal close on save changes
+
+
+
+
 
 -->create a function to save changes
 ->inside it create an object to store task card data
 ->use the getElementById method to get the html tags id 
 
-->In html, add a tag to the div tag which stores all the cards & store that class name in a variable
+->In html, add a class name to the div tag which stores all the cards & store that class name in a variable
 ->use queryselector instead of getElementByClass to avoid getting the html element in the form of an array
 ->queryselector gets all the html code inside the html element which was accessed
-->create a function to create a new card using template literal and destructure the task data object as a parameter
+->create a function to create a new card using template literal & destructure the task data object as a parameter
 ->assign the id's inside the template literal
 
-->create a constant and call the create new card function inside it passing the task data
+->create a constant & call the create new card function inside it passing the task data
+->use the taskcontainer variable to insert html passing the arguments
+
+
+
+
+
+--->reload the cards on site refresh
+
+->create a global store array to store task card data(objects inside array)
+->add the task card data to it
+->call the local storage api & use the set item method to store the card data providing key(id) & array
+->providing array directly is bad practice so use an object to store array & stringify it using JSON(here we use an object key to store the array which holds the data of all task cards)
+
+-->create another function to reload task cards 
+->create a variable to store the card data using local storage api & get item method & pass the key
+->parse the variable & store it in a new variable & destructure the new variable(here we destructure the object key which holds the globalstore array i.e from object to string to object)
+->set a fail-safe condition for variable in case the key is not found on system
+->map around the object key & create a function inside it to generate HTML card & inject it into DOM(here the object key holds the globalstore array so in order to get individual card data we use map & pass a paramater which holds the individual card data)
+->create a variable & call the create new card function inside it passing the outer function parameter
+->use the taskcontainer variable to insert html by passing the arguments
+->push the parameter into the globalstore array (we push the updated values into global store array because we mapped the array instead of foreach so that updated copy needs to be replaced with the original one on refresh)
+
+
+
+
+
+--->delete the card on clicking delete buttons
+
+-->create a delete function & pass event parameter(`event` gets the html code for the element tag it is specified for)
+-->Obtain the id
+->assign window.event to the `event` parameter(to perform browser based operation like delete card)
+->store the id of the card(the one to be deleted) inside a variable using event.target.id
+->store the tagname of the element(which was interacted with on clicking the delete button) inside a variable using event.target.tagName 
+
+-->Search global store & remove the object which matches with the id
+->create a new variable to store the updated global store array using filter method
+->inside filter pass a function condition with "individual card data id is not equal to target id" & provide a parameter to the function in the form of the individual card data
+->assign the updated array to the globalstore array
+-->we can also replace the "new variable" used to store the .filter with the globalstore array & remove the above step
+
+-->access DOM to remove them
+->if user clicks on delete button
+->check "if tagname is equal to BUTTON" & return event.target & specify the address of parent element of the task card using parentNode
+->use .removeChild & specify the address of child tag(html card) to be removed 
+->exit the if statement & do the same via adding a return statement & specify the address
+->in case the user clicks on the delete icon use the same steps as above
+
+-->making changes to the template literal
+->add id object key using template literal & add the onclick attr. to the delete button & delete icon(DOUBT: WHY DID SIR USE OBJECT KEY `ID` SEVERAL TIMES IN THE TEMPLATE LITERAL AND DOES BENDING THE RULES MAKE THE CODE VULNERABLE? ALSO IF WE USE THE OBJECT KEY `ID` AND ONLCLICK IN DELETE BUTTON THEN WHY NOT IN DELETE ICON?)
+->while calling the delete function, use the .apply method & specify `this` & `arguments` as the arguments(DOUBT: DID NOT UNDERTSAND THIS PART)
+
+-->we can also replace the return statement by using the variable which stores the class of the task card container and then using .removeChild
