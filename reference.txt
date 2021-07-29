@@ -1,3 +1,5 @@
+?//Note to self: Let's explore the possibility of reloading the page once we have edited the task card in order to display the edited content on the card
+
 Added Bootstrap:
 
 ->add navbar
