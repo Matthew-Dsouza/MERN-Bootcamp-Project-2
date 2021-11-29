@@ -20,18 +20,18 @@ const htmlTaskContent = ({ id, title, description, type, url }) => `
       </button>
     </div>
     
-    <div class="card-bodyxxx">
+    <div class="">
       ${
         url &&
         `<img width="100%" src=${url} alt="Card image" class="card-img-top rounded-0" id="templateImage" />`
       }
   
-      <h5 class="card-title task__card__title ms-3 mt-2 fs-4">${title}</h5>
-      <p class="description trim-3-lines card-text ms-3 my-0 mb-3" data-gramm_editor="false">
+      <h5 class="card-title task__card__title ms-3 mt-2 fs-4 px-1">${title}</h5>
+      <p class="description trim-3-lines card-text ms-3 my-0 mb-3 px-1" data-gramm_editor="false">
       ${description}
       </p>
       <div class="tags text-white d-flex flex-wrap ms-3 mb-2">
-        <span class="badge bg-primary">${type}</span>
+        <span class="badge bg-primary px-1">${type}</span>
       </div>
         
       </div>
