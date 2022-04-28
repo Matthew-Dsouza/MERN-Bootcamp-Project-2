@@ -56,7 +56,7 @@ const htmlModalContent = ({ id, title, description, url }) => {
     <img
     src=${
       url ||
-      `https://images.unsplash.com/photo-1572214350916-571eac7bfced?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80`
+      `https://images.unsplash.com/photo-1611079830811-865ff4428d17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1834&q=80`
     }
     alt="bg image"
     class="img-fluid place__holder__image mb-3"
@@ -97,6 +97,11 @@ const handlesubmit = (e) => {
   updateLocalStorage();
 };
 
+// 
+// 
+// 
+
+// open the task on clicking 'open task' button
 const openTask = (e) => {
   if (!e) e = window.event;
 
@@ -104,6 +109,11 @@ const openTask = (e) => {
   taskModal.innerHTML = htmlModalContent(getTask[0]);
 };
 
+// 
+// 
+// 
+
+// delete the task on clicking delete button 
 const deleteTask = (e) => {
   if (!e) e = window.event;
   const targetID = e.target.getAttribute("name");
@@ -121,6 +131,11 @@ const deleteTask = (e) => {
   );
 };
 
+// 
+// 
+// 
+
+// edit the task on clicking edit button 
 const editTask = (e) => {
   if (!e) e = window.event;
   const targetID = e.target.id;
@@ -149,6 +164,12 @@ const editTask = (e) => {
   submitButton.removeAttribute("data-bs-target");
   submitButton.innerHTML = "Save Changes";
 };
+
+// 
+// 
+// 
+
+// save the task after editing
 const saveEdit = (e) => {
   if (!e) e = window.event;
   const targetID = e.target.id;
@@ -188,6 +209,11 @@ const saveEdit = (e) => {
   submitButton.innerHTML = "Open Task";
 };
 
+// 
+// 
+// 
+
+// search for a specific task
 const searchTask = (e) => {
   if (!e) e = window.event;
   while (taskContents.firstChild) {

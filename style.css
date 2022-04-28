@@ -20,7 +20,7 @@ p {
 }
 
 .place__holder__image {
-  height: 10rem;
+  /* height: 10rem; */
   width: 100%;
 }
 .task__card {
